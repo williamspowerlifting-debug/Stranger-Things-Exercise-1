@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ESL Gap Fill Exercise</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 20px; background:#f4f6f8; }
+.container { max-width: 900px; margin:auto; background:white; padding:20px; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1); }
+h1 { text-align:center; }
+video { width:100%; border-radius:10px; margin-bottom:20px; }
+input { border:none; border-bottom:2px solid #333; width:120px; }
+button { margin-top:20px; padding:10px 20px; font-size:16px; cursor:pointer; }
+.correct { color:green; }
+.incorrect { color:red; }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>🎧 Gap Fill Exercise</h1>
+
+<video controls>
+  <source src="Stranger Things 6.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<p>Fill in the missing words:</p>
+
+<p>
+That’s weird. I don’t see him.<br>
+I’m telling you, his mom’s right.<br><br>
+
+Probably just went to class <input id="q1"> again.<br>
+Yeah, he’s always <input id="q2"> Gersky’s gonna give him another pop quiz.<br><br>
+
+Step right up, ladies and gentlemen.<br>
+Step right up and get your <input id="q3"> for the freak show.<br><br>
+
+Where do you think we’d make more money in a freak show?<br>
+Midnight? Frog face? Or <input id="q4">?<br><br>
+
+I go with <input id="q5">.<br><br>
+
+My teeth are coming in. It’s called <input id="q6"> <input id="q7">.<br><br>
+
+Do the arm thing. Do it, <input id="q8">.<br><br>
+
+Whoa! It hits me every time.<br><br>
+
+<input id="q9">.<br><br>
+
+It’s like you have <input id="q10"> or something.<br><br>
+
+Yeah, except they can’t fight <input id="q11"> with it.
+</p>
+
+<button onclick="checkAnswers()">Check Answers</button>
+
+<p id="result"></p>
+</div>
+
+<script>
+function checkAnswers() {
+  const answers = [
+    "early",
+    "paranoid",
+    "tickets",
+    "tearfulness",
+    "toothless",
+    "kleidocranial",
+    "dysplasia",
+    "freak",
+    "assholes",
+    "superpowers",
+    "evil"
+  ];
+
+  let score = 0;
+
+  answers.forEach((ans, i) => {
+    let input = document.getElementById("q" + (i+1));
+    if (input.value.toLowerCase().trim() === ans) {
+      input.classList.add("correct");
+      input.classList.remove("incorrect");
+      score++;
+    } else {
+      input.classList.add("incorrect");
+      input.classList.remove("correct");
+    }
+  });
+
+  document.getElementById("result").innerText =
+    "Score: " + score + " / " + answers.length;
+}
+</script>
+
+</body>
+</html>
